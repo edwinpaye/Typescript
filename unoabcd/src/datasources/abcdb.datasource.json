@@ -2,7 +2,7 @@
   "name": "abcdb",
   "connector": "mongodb",
   "url": "",
-  "host": "unoabcd_mongo_1",
+  "host": "abcd_mongo_1",
   "port": 27017,
   "user": "me",
   "password": "",

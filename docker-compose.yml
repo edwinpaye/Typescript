@@ -1,0 +1,17 @@
+version: "3"
+services:
+  mongo:
+    image: mongo
+    ports:
+    - "27019:27017"
+  mongo-seed:
+    build: ./mongo-seed
+    links:
+      - mongo
+  web:
+    restart: always
+    build: ./unoabcd
+    ports:
+    - "8091:3000"
+    links:
+      - mongo

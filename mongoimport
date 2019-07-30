@@ -1,0 +1,9 @@
+mongoimport --host localhost --db abcdb --collection Roles --type json --file roles.json --jsonArray
+mongoimport --host localhost --db abcdb --collection Usuario --type json --file usuarios.json --jsonArray
+mongoimport --host localhost --db abcdb --collection Universidades --type json --file universidades.json --jsonArray
+
+
+
+mongoimport --host abcd_mongo_1 --db abcdb --collection Usuario, -c Roles, -c Universidades --file /roles.json, -f /usuarios.json, -f /universidades.json --type json --jsonArray
+
+ls -1 *.json | while read jsonfile; do mongoimport --db abcdb --file $jsonfile --jsonArray --type json; done
