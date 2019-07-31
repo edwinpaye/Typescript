@@ -1,26 +1,46 @@
-import React from 'react';
+import React, {Component} from 'react';
 // import logo from './logo.svg';
+import 'bootstrap/dist/css/bootstrap.css';
+import { Combobox } from './components/Combobox/Combobox'
+// import { Combobox, Request } from './components/index';
+import { Container, Col, Row } from 'reactstrap';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      {/* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header> */}
-    </div>
-  );
+class App extends Component {
+  state = {
+    universidades: [],
+  };
+
+  componentDidMount(){
+    this.loadUniversidades();
+  }
+
+  loadUniversidades(){
+    fetch('http://localhost:8091/universidades')
+    .then(res => res.json())
+    .then((data) => {
+      this.setState({ universidades: data })
+      // console.log(data)
+    })
+    .catch(console.log)
+  }
+
+  render(){
+    const { universidades } = this.state;
+    return (
+      <div className="App">
+        <Row>
+          <Col xs={6}>
+            <Combobox universidades={universidades}></Combobox>
+          </Col>
+          <Col xs={6}>
+            <Combobox universidades={universidades}></Combobox>
+          </Col>
+        </Row>
+      </div>
+    );
+  }
+  
 }
 
 export default App;
