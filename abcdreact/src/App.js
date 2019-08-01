@@ -1,9 +1,8 @@
 import React, {Component} from 'react';
-// import logo from './logo.svg';
 import 'bootstrap/dist/css/bootstrap.css';
 import { Combobox } from './components/Combobox/Combobox'
 // import { Combobox, Request } from './components/index';
-import { Container, Col, Row } from 'reactstrap';
+import { Col, Row } from 'reactstrap';
 import './App.css';
 
 class App extends Component {
@@ -20,7 +19,6 @@ class App extends Component {
     .then(res => res.json())
     .then((data) => {
       this.setState({ universidades: data })
-      // console.log(data)
     })
     .catch(console.log)
   }
@@ -40,7 +38,6 @@ class App extends Component {
       </div>
     );
   }
-  
 }
 
 export default App;
