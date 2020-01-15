@@ -1,17 +1,28 @@
+<button type="button" (click)="switch = !switch" class="btn btn-primary my-3">
+    {{switch? 'Hide':'Show'}}
+</button>
 <div class="card border-primary mb-3">
-    <div class="card-header">Titulo</div>
+    <div class="card-header">List</div>
     <div class="card-body text-primary">
-      <h5 class="card-title">Primary card title</h5>
+      <h5 class="card-title">Users List</h5>
 
-      <table class="table table-bordered table-striped">
+      <table class="table table-bordered table-striped" *ngIf="switch">
           <thead>
               <tr>
-                  <th></th>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Last Name</th>
+                  <th>Email</th>
+                  <th>Create At</th>
               </tr>
           </thead>
           <tbody>
-              <tr *ngFor="let cliente of clientes">
-                  <td></td>
+              <tr *ngFor="let item of list">
+                  <td>{{item.id}}</td>
+                  <td>{{item.name}}</td>
+                  <td>{{item.lastName}}</td>
+                  <td>{{item.email}}</td>
+                  <td>{{item.createAt}}</td>
               </tr>
           </tbody>
       </table>

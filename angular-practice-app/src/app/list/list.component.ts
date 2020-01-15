@@ -8,7 +8,8 @@ import { ListService } from './list.service';
 })
 export class ListComponent implements OnInit {
 
-  list: any[];
+  private list: any[];
+  private switch: boolean;
 
   constructor(private listService: ListService) { }
 
