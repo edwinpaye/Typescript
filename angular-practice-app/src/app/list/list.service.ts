@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
+import { LIST } from './mocks.json';
 
 @Injectable({
   providedIn: 'root'
@@ -6,4 +8,9 @@ import { Injectable } from '@angular/core';
 export class ListService {
 
   constructor() { }
+
+  getList(): Observable<any[]>{
+    return of(LIST);
+  } 
+
 }
